@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlaucoDetect</title>
+    <link rel="stylesheet" href="static\style.css" />
+</head>
+<body>
+    <header class="header">
+      <a href="/" class="logo"> 
+        <img src="static\images\mystery_24dp_FILL0_wght400_GRAD0_opsz24.png" alt="" style="width:25px;height: 25px;"/>
+        GlaucoDetect
+    </a>
+        <nav class="navbar">
+          <a href="/">Home</a>
+          <a href="/about"> About</a>
+          <a href="/services">Services</a>
+          <a href="/reviews">Reviews</a>
+          <a href="/blogs">Blogs</a>
+         
+        </nav>
+  
+        <div id="menu-btn" class="fas fa-bars" onClick="{handleClick}">
+          <GiHamburgerMenu />
+        </div>
+      </header>
+      <section>
+        <style>
+    
+            section {
+                padding: 20px;
+                text-align: center;
+                border: dashed;
+                margin-top: 12rem;
+                margin-left: 5rem;
+                margin-right: 5rem;
+            }
+  
+            form {
+                margin-top: 20px;
+            }
+            label {
+                display: block;
+                margin-bottom: 10px;
+            }
+            input[type="file"] {
+                margin-bottom: 10px;
+            }
+            button {
+                background-color:#fff /* Darker green */
+                color: #fff; /* White */
+                padding: 10px 20px;
+                border: ridge;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #16a085; /* Darker green on hover */
+            }
+            img {
+                max-width: 100%;
+                margin-top: 20px;
+            }
+            p.message {
+                font-weight: bold;
+                margin-top: 20px;
+            }
+        </style>
+
+      <form action="/predict" method="post" enctype="multipart/form-data">
+        <h1 class="heading"><label for="file">Check Your<span>Eyes</span></label></h1>
+          
+          <input type="file" id="file" name="file" accept="image/*">
+          <button type="submit">Predict</button>
+      </form>
+      {% if message %}
+          <p class="message">{{ message }}</p>
+      {% endif %}
+      {% if image %}
+          <img src="{{ image }}" alt="Uploaded Image">
+      {% endif %}
+  </section>
+  <footer id="footer" class="footer">
+    <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+    </div>
+    <p>Copyright &copy;2024 | All Rights Reserved</p>
+  </footer>
+    </body>
+    </html>
